@@ -1,0 +1,21 @@
+Episode 1 callback
+Callbacks are a powerful way to handle asynchronous operations in JavaScript. They are functions that are passed as arguments to other functions and are called later when the asynchronous operation is completed.
+
+The good parts of callbacks are:
+
+They are a powerful way to write asynchronous code in JavaScript.
+They allow you to take a piece of code and pass it as a callback, which can be executed later.
+The bad parts of callbacks are:
+
+Callback hell: This occurs when you have nested callbacks inside of each other, making the code difficult to read and maintain.
+Inversion of control: When you pass a callback function to another function, you give up control of your code to that other function. This can make it difficult to reason about how your code will behave.
+Here are the key points:
+
+Callbacks are used to handle asynchronous operations in JavaScript.
+Callbacks can lead to callback hell, which makes code difficult to read and maintain.
+Callbacks can also lead to inversion of control, which means you give up control of your code to other functions.
+
+//-----------------------------------------------------------------
+
+
+
