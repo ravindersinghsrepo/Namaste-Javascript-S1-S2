@@ -15,7 +15,87 @@ Callbacks are used to handle asynchronous operations in JavaScript.
 Callbacks can lead to callback hell, which makes code difficult to read and maintain.
 Callbacks can also lead to inversion of control, which means you give up control of your code to other functions.
 
-//-----------------------------------------------------------------
+//----------------------------------------------------------------
+
+Episode 5 -> promise topic (Ep4)
+
+1)
+Promise.all() . 
+why it is used ? 
+suppose we have to make parallel api calls and all returns promises 
+10 api calls for 10 users , api calls returns userId
+promise.all is used to handle multiple promises together 
+
+we use promise.all here when we are making mulitple api calls  
+it takes an array of promises an input 
+array is an iterable 
+
+promise.all([p1 , p2 , p3]);
+it will make 3 parallel api calls and get the result 
+let say ,
+p1 is an api call and it takes 3 seconds to get the rsult 
+p2 gets resolved after 1 sec 
+p3 takes 2 seconds 
+all the api calls were successfull 
+Ouput of all the api calls is returned in array with value of all the results 
+[ p1,   p2 ,    p3]
+[val1 , val2 , val3];
+[3sec , 1sec , 2sec]
+final promise.all will take 3 seconds in total to get the result .
+
+promise.all will wait for all of the calls to finish i.e max time among all the promise calls to get resolved .
+
+what if any of these promises gets rejected ? 
+promise.all([p1 , p2 , p3])
+resolve time[3sec , 1sec , 2sec]
+after 1 sec let say p2 gets rejected ! now promise.all will also get rejected and throw an error 
+Here we see error in 1 sec only , we dont wait for other promises to get fulfilled or rejected (it is also called fail fast)
+Output will be error 
+immediately as soon as error happened it will return the error 
+
+2) promise.allSettled
+what if i want results from successfull calls other than failed calls?
+promise.allSettled([p1 , p2 , p3])
+       resolve time[3sec , 1sec , 2sec]
+after 3 sec now we get result (all successfull calls)
+what if p2 gets rejected ? 
+Now promise.getSettled will wait for 3sec to get all promisess settled 
+we get -> [val1 , err2 , val3] (here we got err2 for failed call)
+
+promise.allSettled waits for all results even if one promise is rejected
+
+it is safest option among all promise apis
 
 
+3) promise.race()-> returns the result of first settled promise
+promise.race([p1 , p2 , p3])
+resolve time[3sec , 1sec , 2sec]
+we get result for first settled promise after 1 sec (p2's result)
 
+promise.race([p1 , p2 , p3])
+resolve time[3sec , 5sec , 2sec]
+
+after 2sec we get result for p3's result
+what if p3 fails ? 
+Error will be thrown now for p3 here (we get result for 1st settled promise(settled means either suucess or reject))
+
+
+4) promise.any()-> returns results for first success promise call
+promise.any([p1 , p2 , p3])
+resolve time[3sec , 1sec , 2sec]
+whenever the 1st promise to get resolved we get result 
+wait for only first successfull promise call 
+if p2 fails and p3 is successfull we get result for p3 
+
+Also, if every promise call fails -> returned result will be an AggregateError (list of errors)
+[e1 , e2 ,e3]
+
+promise.any() waits for success and ignores the errors till then .
+
+
+settles means (we get result or conclusion)
+|            |
+˅            ˅
+resolve     rejected
+success     failure
+fulfilled   rejected
