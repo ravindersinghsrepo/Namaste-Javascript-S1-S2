@@ -36,7 +36,7 @@ function createOrder(cart){
     // creating a promise 
     const pr = new Promise(function(resolve,reject){
         // create an order 
-        // validate the cart 
+        // validate the cart   
         // orderId returned
         if(!validateCart(cart)){
             // resolve and reject 2 powerful methods given by js 

@@ -33,7 +33,7 @@ const cart = ["shoes" , "pants",'kurtas'];
 //     proceedToPayment(orderId)
 // })
 // callback function is attached here 
-//we had doubts on earlier piece of code , (no call , or called callback fn twice)
+// we had doubts on earlier piece of code , (no call , or called callback fn twice)
 // promise gives us guarantee that callback function will be called 100% of time whenever promise object receives the data after some time . it will call it just once , we also have control of our code 
 
 //-----------------------------------------
@@ -46,10 +46,10 @@ user.then(function(data){
 })
 
 // what is a promise ? 
-// promise object is a placeholder , which will be filled with data unitll we receive a value from an asynch operation
+// promise object is a placeholder , which will be filled with data after we receive a value from an asynch operation
 // or
-//a container for future value 
-//or MDN says:
+// a container for future value 
+//  MDN says:
 // promise is an object represting an eventual completion of an asynchronous operation
 
 // there are only 3 states of promise a) fulfilled , b) pending c) rejected .
