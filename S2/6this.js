@@ -15,6 +15,7 @@ function x(){
     console.log(this) // window but in strict mode the value of this is undefined  (the value depends on strict and non strict mode )
 }
 x();
+
 // this in strict mode 
 
 // this substitution 
@@ -35,7 +36,7 @@ window.x() // in strict mode also we get window object now
 const obj = {
     a:10,
     x: function(){
-        console.log(this) // obj object -> { a :10 , x:F()}
+        console.log(this) // obj         object -> { a :10 , x:F()}
     }, 
 }
 

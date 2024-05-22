@@ -1,0 +1,24 @@
+- [x]  Introduction to Basic Data Types →  only type coercion topic is left here 
+- [x]  Understand lexical scope  in (akshay saini vids)
+- [ ]  Understand hoisting and closures →   hoisting definition and example , type of error , TDZ
+  [ ]  closure chaining (add()()()()()() )  
+- [ ]  Understand how this keyword is resolved to a value during run time , → in object and function
+- [ ]  Understand call, apply and bind → refer video by akshay saini
+- [ ]  Understand Object prototype → new concept , prototype , prototypal inheritance how to add any new property in any class prototype
+- [ ]  Object.define property →how many properties and how to define
+- [ ]  Methods of objects → Object.create ,  .assign , .seal , .freeze , shallow and deep copy of objects
+- [ ]  Extending objects → prototype chaining
+- [ ]  Array prototype → example of how to add in array prototype
+- [ ]  Understand prototype chain →
+- [ ]  Understand OOP in JS →
+- [ ]  Inheritance using ES5
+- [ ]  Inheritance using ES6
+- [ ]  Understand Event loop → Global execution context (prerequisite ) how code execution works in javascript    (asynchronous task handling ? )
+- [ ]  Understand callbacks, promises →  methods of promises (race , allsettled , all , …)  , async await
+- [ ]  Understand DOM parsing
+- [ ]  Understand Event binding
+- [ ]  Understand Event capture and bubbling phases → event delegation , fetching data from server using fetch()  ,
+- [ ]  Understand Unit test setup and Jasmine syntax
+- [ ]  Understand the ES6 features
+- [ ]  Design principles → KISS , DRY , YAGNI , SOLID
+- [ ]  Design Patterns → worst case Scenarios
