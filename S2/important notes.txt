@@ -63,7 +63,7 @@ Now promise.getSettled will wait for 3sec to get all promisess settled
 we get -> [val1 , err2 , val3] (here we got err2 for failed call)
 
 promise.allSettled waits for all results even if one promise is rejected
-
+ 
 it is safest option among all promise apis
 
 
