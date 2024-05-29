@@ -1,7 +1,7 @@
 // what is a callback function in js 
 function x(a){
     console.log('x is called')
-    y()
+    a()
 }
 
 function y(){

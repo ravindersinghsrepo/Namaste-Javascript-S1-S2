@@ -2,19 +2,18 @@
 
 // name();
 // variable(); // type error variable is not a function 
-// variable is undefined untill in code execution phase js engine comes across line number 11
+// variable is undefined untill in code execution phase js engine comes across line number 12
 
 function name(){ 
     console.log('This way of defining a function is called function statement');
 }
 
-// function expressiom 
+// function expression
 var variable = function (){
     console.log('Here function acts as a value the variable')
 }
 
 //Imp
-
 // hoisting case in above both cases 
 
 // Function declaration 
@@ -22,9 +21,9 @@ var variable = function (){
 
 // Anonymous function-> Acc to ecma script should always have a name 
 
-// function(){ -> is a function statement 
+// function(){ //-> is a function statement 
 
-// } -> gives error 
+// } // -> gives error 
 
 // anonymous functions are mostly used as a value to be assigned to a variable 
 

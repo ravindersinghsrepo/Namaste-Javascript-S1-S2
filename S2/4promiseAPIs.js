@@ -13,7 +13,7 @@
 // }).catch(err=>console.log(err))
 
 //------------------------------------------------
-//1 call fails in promise.all() -> no wait for all others to get fulfilled
+// 1 call fails in promise.all() -> no wait for all others to get fulfilled
 // const p1 = new Promise((resolve,reject)=>{
 //     setTimeout(()=>resolve('P1 success'),3000);
 // })

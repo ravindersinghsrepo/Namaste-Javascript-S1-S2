@@ -1,5 +1,5 @@
+'use strict'  
 // this keyword
-'use-strict'
 // this keyword behaves differently in different environment 
 
 // this in global space
@@ -20,30 +20,31 @@ function x(){
 
 // this substitution 
 // acc to this concept  if the value of this is undefined or null , this will be replaced with global object , only in non strict mode 
-//:. inside function (non strict mode) -> window
-//:. inside function (strict mode) -> undefined 
+// :. inside function (non strict mode) -> window
+// :. inside function (strict mode) -> undefined 
 
 
-//this value depends on how this is called (window)
+//this value depends on how this (window) is called
 // x() // window in non strict mode
 // x() // undefined in strict mode
 // window.x() // in strict mode also we get window object now 
-// reason -. if the function is called wothout any refernce of object then the value is undefined , but when we call it like window.x() , window object is calling object so it gives the window object 
+// reason -> if the function is called without any refernce of object then the value is undefined , but when we call it like window.x() , window object is calling object so it gives the window object 
 
 
 //this inside an object method
-//a function that is part of an object then it is a method
+//a function that is part of an object then it is called a method
 const obj = {
     a:10,
     x: function(){
         console.log(this) // obj         object -> { a :10 , x:F()}
+        console.log(this.a) //10
     }, 
 }
-
-// obj.x() // ans printed above
+// value of this is the object (where the method is present)
+// obj.x() // obj
 
 // call  ,apply ,  bind methods 
-// call:
+// call :
 // used when we have to share methods
 const obj2 = {
     a : 20 
@@ -73,7 +74,7 @@ const student2 = {
 const obj3 = {
     a:10,
     x : ()=>{
-        console.log(this) // 
+        console.log(this) // not obj3 , but the value is enclosing lexical context
     }
 }
 // obj3.x() // global object of current env -> window obj in chrome
@@ -82,17 +83,16 @@ const obj3 = {
 
 
 // // this inside nested arrow function 
-const obj4 = {
-    a:10,
-    x :function(){
-
-        const y = ()=>{
-            console.log(this) // { a: 10, x: [Function: x] }
+const obj4 ={
+        a:10,
+        x :function(){
+            const y = ()=>{
+                console.log(this) // { a: 10, x: [Function: x] }
+            }
+            y();
+    
         }
-        y();
-
     }
-}
 // obj4.x()
 
 // value printed in line 90 is because y() is present lexically enclosed in function x 
@@ -100,9 +100,24 @@ const obj4 = {
 
 // if x was an arrow function then we would have got global object 
 
+// ----------------------------
+// const obj5= {
+//     obj4 :{
+//         a:10,
+//         x :function(){
+    
+//             const y = ()=>{
+//                 console.log(this) // { a: 10, x: [Function: x] }
+//             }
+//             return y;
+    
+//         }
+//     }
+// }
+// obj5.obj4.x()()
+
 // asked in interview 
 const person = {
-
 	name: 'john doe',
 	addr1: {
 		city: 'city',
@@ -111,7 +126,6 @@ const person = {
 			console.log(this);
 		},
 	},
-    
 	addr2: {
 		city: 'another city',
 		state: 'another state',
@@ -126,12 +140,37 @@ const person = {
 	},
 
 };
-person.addr2.getAddr2()(); // person
-person.addr1.getAddr(); //addr1
-person.addr2.getAddr();// addr2
+// person.addr2.getAddr2()(); // addr2
+// person.addr1.getAddr(); //addr1
+// person.addr2.getAddr(); // person 
+//--------------------------------------------------
+// my example 
 
+const obje2={
+    obje:{
+    prop1 : {
 
-
+        x: function(){
+            return ()=>{
+                console.log(this)
+            }
+           
+        },
+        b:'some val'
+        
+    } , 
+    prop2:{
+        prop3:{
+        x:()=>{
+            console.log(this)
+        }
+    }
+    }
+}
+}
+obje2.obje.prop1.x()();
+obje2.obje.prop2.prop3.x(); // impo case 
+// here this will give us the window object always no matter how many levels down it is present 
 // this inside DOM
 
 
